@@ -271,6 +271,7 @@ module WinRM
         no_sspi_auth!
         service ||= 'HTTP'
         @service = "#{service}/#{@endpoint.host}@#{realm}"
+        no_ssl_peer_verification! if opts[:no_ssl_peer_verification]
         init_krb
       end
 
